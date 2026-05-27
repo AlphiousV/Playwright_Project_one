@@ -19,7 +19,7 @@ const customfixture = base.extend<{
 });
 
 export default customfixture;
-
+export const expect = customfixture.expect
 
 
 

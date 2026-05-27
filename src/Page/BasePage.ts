@@ -1,7 +1,7 @@
 import {Page}   from '@playwright/test';    
 
 class BasePage{
-    protected url: string  = ''
+     url: string  = ''
     protected readonly page: Page;
    constructor( page: Page){
     this.page = page;
@@ -11,3 +11,5 @@ class BasePage{
         await this.page.goto(this.url);
     }   
 }
+
+export default BasePage;
