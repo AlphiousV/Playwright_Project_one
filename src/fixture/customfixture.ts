@@ -1,25 +1,33 @@
 import {test as base} from '@playwright/test';
-import LoginPage from '../Page/LoginPage';
+import RegisterPage from '../Page/RegisterPage';
 import BasePage from '../Page/BasePage';
+import SignInPage from '../Page/SignInPage';
 
 
 
 const customfixture = base.extend<{
-    loginPage: LoginPage,
-    HomePage: BasePage
+    RegisterPage: RegisterPage,
+    HomePage: BasePage,
+    SignInPage: SignInPage
 }>({
-    loginPage: async({page},use) => {
-        const loginPage = new LoginPage(page);
+    RegisterPage: async({page},use) => {
+        const loginPage = new RegisterPage(page);
         await use(loginPage);
     },
     HomePage: async({page},use) => {
         const homePage = new BasePage(page);
         await use(homePage);
+    },
+    SignInPage: async({page},use) =>{
+        const signInPage =  new SignInPage(page);
+        await use(signInPage)
     }
+
 });
 
 export default customfixture;
 export const expect = customfixture.expect
+
 
 
 
