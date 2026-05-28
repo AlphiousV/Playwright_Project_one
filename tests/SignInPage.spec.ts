@@ -1,9 +1,11 @@
 import test, { expect } from '../src/fixture/customfixture';
 
 test.describe('Landed on Sign In Page', ()=>{
- test.beforeAll(async ({HomePage}) =>{
+ test.beforeEach(async ({HomePage}) =>{
 
     await HomePage.navigateTo();
+     })
+
 
      test("Home Page validation", async ({ HomePage,page}) => {
 
@@ -16,7 +18,7 @@ test.describe('Landed on Sign In Page', ()=>{
 
     });
 
-    test('Validate Sign in Page',async ({SignInPage,page}) =>{
+    test('Validate Sign in Page',async ({HomePage,SignInPage,page}) =>{
       
         await HomePage.SignInButton.click();
         await expect(page).toHaveURL(SignInPage.url);
@@ -27,6 +29,4 @@ test.describe('Landed on Sign In Page', ()=>{
 
     })
 
- })
-    
 })

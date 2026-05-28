@@ -11,7 +11,7 @@ class SignInPage extends BasePage {
 
     get LoginTitle()
     {
-        return this.page.getByText("Login");
+        return this.page.getByRole('heading', { name: 'Login' });
     }
 
     get EmailField()
