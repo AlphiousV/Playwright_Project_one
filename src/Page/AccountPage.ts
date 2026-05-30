@@ -1,0 +1,16 @@
+import BasePage from "./BasePage";
+import {Page} from "@playwright/test"
+
+class AccountPage extends BasePage {
+
+    url:string = '/account'
+
+    constructor(page:Page)
+    {
+        super(page)
+    }
+
+
+}
+
+export default AccountPage;

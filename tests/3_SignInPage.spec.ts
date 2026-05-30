@@ -1,5 +1,6 @@
 import test, { expect } from '../src/fixture/customfixture';
 
+test.describe.configure({mode:"serial"});
 test.describe('Landed on Sign In Page', ()=>{
  test.beforeEach(async ({HomePage}) =>{
 
@@ -18,15 +19,23 @@ test.describe('Landed on Sign In Page', ()=>{
 
     });
 
-    test('Validate Sign in Page',async ({HomePage,SignInPage,page}) =>{
+    test('Validate Sign in Page',async ({HomePage,SignInPage,page,AccountPage}) =>{
       
         await HomePage.SignInButton.click();
         await expect(page).toHaveURL(SignInPage.url);
         await expect(SignInPage.LoginTitle).toBeVisible();
         await expect(SignInPage.EmailField).toBeEnabled();
         await expect(SignInPage.PasswordField).toBeEditable();
+        // await SignInPage.SignInWithCredential();
+        // await expect(page).toHaveURL(AccountPage.url);
+        
 
 
     })
+
+
+
+    
+
 
 })

@@ -1,5 +1,6 @@
 import test, {expect} from "../src/fixture/customfixture";
 
+test.describe.configure({mode:"serial"});
 test.describe("Landed on Registation Page", () =>{
 
     test.beforeEach(async({HomePage}) =>{
@@ -37,6 +38,13 @@ test.describe("Landed on Registation Page", () =>{
         await expect(page).toHaveURL(RegisterPage.url);
         await expect(RegisterPage.RegisterTitle).toBeVisible();
 
+    })
+
+    test("Register New user",async ({HomePage,RegisterPage,SignInPage}) =>{
+         await HomePage.SignInButton.click();
+        await expect(SignInPage.LoginTitle).toBeVisible();
+        await RegisterPage.RegistrationLink.click();
+        await RegisterPage.RegisterNewUser();
 
     })
 

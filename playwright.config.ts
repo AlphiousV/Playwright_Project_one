@@ -8,6 +8,9 @@ export default defineConfig({
   reporter: 'html',
    use: {
      baseURL: 'https://practicesoftwaretesting.com/',
+     launchOptions:{
+      slowMo:1000
+     },
     headless: false,
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
