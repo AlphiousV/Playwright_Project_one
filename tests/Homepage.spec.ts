@@ -1,9 +1,11 @@
 import   test,{ expect } from '../src/fixture/customfixture';
 
+test.describe.configure({mode:"serial"});
 test.describe("Landed on HomePage sucessfully", () => {
 
-    test.beforeEach(async ({ HomePage }) => {
+    test.beforeEach(async ({ HomePage,page }) => {
         await HomePage.navigateTo();
+        await page.waitForTimeout(2000)
     });
 
     test("Home Page validation", async ({ HomePage,page}) => {
@@ -15,8 +17,7 @@ test.describe("Landed on HomePage sucessfully", () => {
         await expect(HomePage.Logo()).toBeVisible();
         await expect(HomePage.SignInButton).toBeEnabled();
 
-
-
     });
 
 });
+

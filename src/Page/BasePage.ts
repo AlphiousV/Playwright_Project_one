@@ -3,9 +3,8 @@ import {expect, Page}   from '@playwright/test';
 class BasePage{
      url: string  = ''
      title: string = 'Practice Software Testing - Toolshop - v5.0'
-     
-   
     protected readonly page: Page;
+    
    constructor( page: Page){
     this.page = page;
    }
@@ -13,7 +12,7 @@ class BasePage{
 
     async navigateTo():Promise<void>{
         await this.page.goto(this.url);
-        console.log("URL ",this.url);
+       await this.page.waitForTimeout(5000);
     } 
 
      headersection(){

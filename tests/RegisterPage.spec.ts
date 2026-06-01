@@ -3,9 +3,9 @@ import test, {expect} from "../src/fixture/customfixture";
 test.describe.configure({mode:"serial"});
 test.describe("Landed on Registation Page", () =>{
 
-    test.beforeEach(async({HomePage}) =>{
-
-        HomePage.navigateTo();
+    test.beforeEach(async({HomePage,page}) =>{
+        await HomePage.navigateTo();
+        await page.waitForTimeout(2000)
     })
 
     test("Home Page validation", async ({ HomePage,page}) => {
@@ -41,7 +41,7 @@ test.describe("Landed on Registation Page", () =>{
     })
 
     test("Register New user",async ({HomePage,RegisterPage,SignInPage}) =>{
-         await HomePage.SignInButton.click();
+        await HomePage.SignInButton.click();
         await expect(SignInPage.LoginTitle).toBeVisible();
         await RegisterPage.RegistrationLink.click();
         await RegisterPage.RegisterNewUser();

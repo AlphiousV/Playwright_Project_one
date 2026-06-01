@@ -2,14 +2,15 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
-  fullyParallel: true,
+  fullyParallel: false,
+  timeout: 60_000,
   retries:  1 ,
   workers: 1 ,
   reporter: 'html',
    use: {
      baseURL: 'https://practicesoftwaretesting.com/',
      launchOptions:{
-      slowMo:1000
+      slowMo:2000
      },
     headless: false,
     screenshot: 'only-on-failure',
