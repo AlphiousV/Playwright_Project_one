@@ -10,7 +10,7 @@ function UserData(): NewUser {
         PostalCode: '603201',
         HouseNumber: '23',
         Phone: '6426419821',
-        Email: 'john@gmail.com',
+        Email: 'Ken007@gmail.com',
         Password: 'JohnM@2000',
     };
 

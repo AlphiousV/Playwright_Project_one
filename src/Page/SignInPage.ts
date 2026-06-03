@@ -1,6 +1,9 @@
 import BasePage from "./BasePage";
-import {Page} from "@playwright/test"
+import {Page,expect} from "@playwright/test"
 import dotenv from 'dotenv';
+import AccountPage from "./AccountPage";
+import UserData from "../utils/userdetails";
+
 
 dotenv.config();
 
@@ -34,12 +37,15 @@ class SignInPage extends BasePage {
     
     async SignInWithCredential()
     {
-        let Email:string =process.env.Email!
-        let Password:string =process.env.Password!
+        let user = UserData();
+        let Email:string =user.Email
+        let Password:string =user.Password
         console.log("cerd", Email ,Password);
         await this.EmailField.fill(Email);
         await this.PasswordField.fill(Password);
         await this.LoginButton.click();
+        console.log(new AccountPage(this.page).url);
+        await expect(this.page).toHaveURL(new AccountPage(this.page).url);
 
     }
     

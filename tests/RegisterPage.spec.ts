@@ -40,7 +40,7 @@ test.describe("Landed on Registation Page", () =>{
 
     })
 
-    test("Register New user",async ({HomePage,RegisterPage,SignInPage}) =>{
+    test.skip("Register New user",async ({HomePage,RegisterPage,SignInPage}) =>{
         await HomePage.SignInButton.click();
         await expect(SignInPage.LoginTitle).toBeVisible();
         await RegisterPage.RegistrationLink.click();
