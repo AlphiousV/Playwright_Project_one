@@ -35,11 +35,11 @@ class SignInPage extends BasePage {
     }
 
     
-    async SignInWithCredential()
+    async SignInWithCredential(email:string,password: string)
     {
-        let user = UserData();
-        let Email:string =user.Email
-        let Password:string =user.Password
+       // let user = UserData();
+        let Email:string =email
+        let Password:string =password
         console.log("cerd", Email ,Password);
         await this.EmailField.fill(Email);
         await this.PasswordField.fill(Password);

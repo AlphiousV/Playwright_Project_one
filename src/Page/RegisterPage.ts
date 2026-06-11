@@ -18,17 +18,18 @@ class RegisterPage extends BasePage{
           return this.page.getByText('Customer registration');
      }
 
-     async RegisterNewUser(){
-          let user = UserData();
-          await this.page.locator('#first_name').fill(user.FirstName);
-          await this.page.locator('#last_name').fill(user.LastName);
-          await this.page.locator('#dob').fill(user.DateOfBirth);
-          await this.page.locator('#country').selectOption(user.Country);
-          await this.page.locator('#postal_code').fill(user.PostalCode);
-          await this.page.locator('#house_number').fill(user.HouseNumber);
-          await this.page.locator('#phone').fill(user.Phone);
-          await this.page.locator('#email').fill(user.Email);
-          await this.page.locator('#password').fill(user.Password);
+     async RegisterNewUser(firstName: string,lastName:string,dateOfbirth:string,country:string,postal:string,housenumber:string,phone:string,email:string,password:string){
+          //if(fir)
+          //let user = UserData();
+          await this.page.locator('#first_name').fill(firstName);
+          await this.page.locator('#last_name').fill(lastName);
+          await this.page.locator('#dob').fill(dateOfbirth);
+          await this.page.locator('#country').selectOption(country);
+          await this.page.locator('#postal_code').fill(postal);
+          await this.page.locator('#house_number').fill(housenumber);
+          await this.page.locator('#phone').fill(phone);
+          await this.page.locator('#email').fill(email);
+          await this.page.locator('#password').fill(password);
 
           await this.page.getByRole('button',{name:'Register '}).click();
      }
