@@ -8,7 +8,7 @@ test.describe("Landed on HomePage sucessfully", () => {
         await page.waitForTimeout(2000)
     });
 
-    test("Home Page validation", async ({ HomePage,page}) => {
+    test("Home Page validation @Regression", async ({ HomePage,page}) => {
 
         await expect(page).toHaveURL(HomePage.url);;
         await expect(page).toHaveTitle(HomePage.title);

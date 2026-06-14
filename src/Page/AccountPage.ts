@@ -10,6 +10,11 @@ class AccountPage extends BasePage {
         super(page)
     }
 
+    async  HomePage()
+    {
+        await this.page.getByText('Home').click();
+    }
+
 
 }
 

@@ -1,6 +1,6 @@
 import BasePage from "./BasePage.ts";
 import {Page}   from '@playwright/test';
-import UserData from "../utils/userdetails.ts";
+
 
 
 class RegisterPage extends BasePage{

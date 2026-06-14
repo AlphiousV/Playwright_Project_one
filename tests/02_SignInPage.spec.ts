@@ -7,7 +7,7 @@ test.beforeEach(async ({HomePage,page}) =>{
     await page.waitForTimeout(2000)
     })
 
-    test('Validate Sign in Page',async ({HomePage,SignInPage,page,RegisterPage}) =>{
+    test('Validate Sign in Page @smoke',async ({HomePage,SignInPage,page,RegisterPage}) =>{
       
         await expect(page).toHaveURL(HomePage.url);;
         await expect(page).toHaveTitle(HomePage.title);

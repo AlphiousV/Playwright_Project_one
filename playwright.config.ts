@@ -3,12 +3,14 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   fullyParallel: false,
-  timeout: 60_000,
+  timeout: 100_000,
   retries:  1 ,
   workers: 1 ,
   reporter: 'html',
    use: {
-     baseURL: 'https://practicesoftwaretesting.com/',
+     baseURL: 'https://practicesoftwaretesting.com/', 
+     testIdAttribute: 'data-test',
+     actionTimeout: 10000,
      launchOptions:{
       slowMo:2000
      },
