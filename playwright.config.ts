@@ -12,7 +12,7 @@ export default defineConfig({
      testIdAttribute: 'data-test',
      actionTimeout: 10000,
      launchOptions:{
-      slowMo:2000
+      slowMo:2000 
      },
     headless: true,
     screenshot: 'only-on-failure',

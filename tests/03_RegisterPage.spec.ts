@@ -13,7 +13,7 @@
             await page.waitForTimeout(2000)
         })
 
-        test.skip("Home Page validation", async ({ HomePage,page}) => {
+        test("Home Page validation", async ({ HomePage,page}) => {
 
             await expect(page).toHaveURL(HomePage.url);;
             await expect(page).toHaveTitle(HomePage.title);
@@ -24,7 +24,7 @@
 
         });
 
-        test.skip('Validate Sign in Page',async ({HomePage,SignInPage,page}) =>{
+        test('Validate Sign in Page',async ({HomePage,SignInPage,page}) =>{
         
             await HomePage.SignInButton.click();
             await expect(page).toHaveURL(SignInPage.url);
@@ -35,7 +35,7 @@
 
         })
 
-        test.skip("Registration Page Validation", async({HomePage,RegisterPage,SignInPage,page})=>{
+        test("Registration Page Validation", async({HomePage,RegisterPage,SignInPage,page})=>{
             
             await HomePage.SignInButton.click();
             await expect(SignInPage.LoginTitle).toBeVisible();
