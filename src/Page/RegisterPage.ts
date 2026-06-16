@@ -19,8 +19,7 @@ class RegisterPage extends BasePage{
      }
 
      async RegisterNewUser(firstName: string,lastName:string,dateOfbirth:string,country:string,postal:string,housenumber:string,phone:string,email:string,password:string){
-          //if(fir)
-          //let user = UserData();
+          
           await this.page.locator('#first_name').fill(firstName);
           await this.page.locator('#last_name').fill(lastName);
           await this.page.locator('#dob').fill(dateOfbirth);
@@ -32,6 +31,11 @@ class RegisterPage extends BasePage{
           await this.page.locator('#password').fill(password);
 
           await this.page.getByRole('button',{name:'Register '}).click();
+
+          await this.page.context().storageState({
+                path: `src/.auth/${lastName}.json`
+                
+          });
      }
 
 

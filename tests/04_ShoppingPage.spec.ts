@@ -5,15 +5,17 @@ const Testdata = ReadExcel('Test_data/TestData.xlsx');
 
     
 test.describe.configure({mode:"serial"});
-test.describe("Landed on Shopping Page",()=>{
+ Testdata.forEach(data =>{
+
+test.describe(`Landed on Shopping Page ${data.Email}`,{ tag: ['@sessionTC','@Shopping'] },()=>{
     test.beforeEach(async ({SignInPage}) =>{
       
         await SignInPage.navigateTo();
     })
 
-    Testdata.forEach(data =>{
+   
 
-    test(`Landed on Shopping ${data.Email}`, async ({SignInPage,AccountPage,ShoppingPage,page}) =>{
+    test(`Landed on Shopping`, async ({SignInPage,AccountPage,ShoppingPage,page}) =>{
 
         await SignInPage.SignInWithCredential(data.Email,data.Password);
         await AccountPage.HomePage();
@@ -21,18 +23,16 @@ test.describe("Landed on Shopping Page",()=>{
 
     })
     
-    })
-   
 
-    test("Verify Custom left Option Buttons", async ({SignInPage,AccountPage,ShoppingPage,page}) =>{
-         await SignInPage.SignInWithCredential(Testdata[0].Email,Testdata[0].Password);
+    test(`Verify Custom left Option Buttons`, async ({SignInPage,AccountPage,ShoppingPage,page}) =>{
+         await SignInPage.SignInWithCredential(data.Email,data.Password);
          await AccountPage.HomePage();
-         await expect(page.locator(ShoppingPage.userName)).toContainText(Testdata[0].FirstName + " "+ Testdata[0].LastName);
+         await expect(page.locator(ShoppingPage.userName)).toContainText(data.FirstName + " "+ data.LastName);
          await ShoppingPage.checkSortDrop(); 
 
+        })
 
-
-    })
+     })
 
    
 })

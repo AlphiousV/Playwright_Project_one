@@ -6,7 +6,7 @@
     console.log("TEstData ",Testdata)
 
     test.describe.configure({mode:"serial"});
-    test.describe("Landed on Registation Page", () =>{
+    test.describe("Landed on Registation Page",{ tag: ['@sessionTC'] }, () =>{
 
         test.beforeEach(async({HomePage,page}) =>{
             await HomePage.navigateTo();
