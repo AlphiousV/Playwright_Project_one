@@ -6,7 +6,7 @@
     console.log("TEstData ",Testdata)
 
     test.describe.configure({mode:"serial"});
-    test.describe("Landed on Registation Page",{ tag: ['@sessionTC'] }, () =>{
+    test.describe("Landed on Registation Page",{ tag: ['@sessionTC','@Register'] }, () =>{
 
         test.beforeEach(async({HomePage,page}) =>{
             await HomePage.navigateTo();
@@ -57,7 +57,15 @@
 
             })
 
-                })
+            test(`Login with ${data.Email} credential and save Session information`, async ({SignInPage,AccountPage,ShoppingPage,page}) =>{
+            await SignInPage.navigateTo();
+            await SignInPage.SignInWithCredential(data.Email,data.Password,data.LastName);
+            await AccountPage.HomePage();
+            await expect(page.locator(ShoppingPage.userName)).toContainText(data.FirstName + " "+ data.LastName);
+
+              })
+
+            })
         }
         else{
 

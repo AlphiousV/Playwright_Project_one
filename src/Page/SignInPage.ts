@@ -2,7 +2,7 @@ import BasePage from "./BasePage";
 import {Page,expect} from "@playwright/test"
 import dotenv from 'dotenv';
 import AccountPage from "./AccountPage";
-import UserData from "../utils/userdetails";
+
 
 
 dotenv.config();
@@ -35,7 +35,7 @@ class SignInPage extends BasePage {
     }
 
     
-    async SignInWithCredential(email:string,password: string)
+    async SignInWithCredential(email:string,password: string,lastName:string)
     {
        // let user = UserData();
         let Email:string =email
@@ -46,6 +46,11 @@ class SignInPage extends BasePage {
         await this.LoginButton.click();
         console.log(new AccountPage(this.page).url);
         await expect(this.page).toHaveURL(new AccountPage(this.page).url);
+
+        await this.page.context().storageState({
+                path: `src/.auth/${lastName}.json`
+                
+          });
 
     }
     

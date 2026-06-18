@@ -32,12 +32,10 @@ class RegisterPage extends BasePage{
 
           await this.page.getByRole('button',{name:'Register '}).click();
 
-          await this.page.context().storageState({
-                path: `src/.auth/${lastName}.json`
-                
-          });
-     }
+         
+     }    
 
+         
 
 }
 
