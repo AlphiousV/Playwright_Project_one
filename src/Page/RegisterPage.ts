@@ -5,6 +5,7 @@ import {Page}   from '@playwright/test';
 
 class RegisterPage extends BasePage{
      url: string = '/auth/register';
+     
 
     constructor(page: Page){
         super(page);
